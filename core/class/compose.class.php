@@ -88,8 +88,13 @@ class compose extends eqLogic {
     }
 
     public function writeFile($_file) {
-      $cmd = 'cat ' . $_file . ' > ' . $this->getConfiguration('path');
-      $this->sendCommand($cmd);
+      if ($this->getConfiguration('connexion') == 'ssh') {
+        file_put_contents('/tmp/ssh.yml', $_file);
+        //$this->sendSSH('scp /tmp/ssh.yml');
+      } else {
+        $this->sendCommand($cmd);
+        file_put_contents($this->getConfiguration('path'), $_file);
+      }
     }
 
     public function generateDockerConf() {
