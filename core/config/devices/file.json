@@ -20,6 +20,13 @@
       "subtype": "other",
       "isVisible": 0,
       "logicalId": "start"
+    },
+    {
+      "name": "Redémarrer la stack avec màj des dockers",
+      "type": "action",
+      "subtype": "other",
+      "isVisible": 0,
+      "logicalId": "pullup"
     }
   ]
 }
