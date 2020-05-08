@@ -52,7 +52,8 @@ class compose extends eqLogic {
       if ($this->getConfiguration('type') == 'file') {
         //rm file
         //rm components
-      } else {
+      }
+      if ($this->getConfiguration('type') == 'docker') {
         $eqlogic = compose::byId($this->getConfiguration('file'));
         $eqlogic->generateComposeConf();
       }
@@ -62,7 +63,8 @@ class compose extends eqLogic {
       $this->loadCmdFromConf($this->getConfiguration('type'));
       if ($this->getConfiguration('type') == 'file') {
         //
-      } else {
+      }
+      if ($this->getConfiguration('type') == 'docker') {
         if ($this->getConfiguration('file') == 'none') {
           return;
         }
