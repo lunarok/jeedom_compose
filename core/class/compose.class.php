@@ -53,7 +53,7 @@ class compose extends eqLogic {
         //rm file
         //rm components
       } else {
-        $eqlogic = self::byId($this->getConfiguration('file'));
+        $eqlogic = compose::byId($this->getConfiguration('file'));
         $eqlogic->generateComposeConf();
       }
     }
@@ -66,13 +66,13 @@ class compose extends eqLogic {
         if ($this->getConfiguration('file') == 'none') {
           return;
         }
-        $eqlogic = self::byId($this->getConfiguration('file'));
+        $eqlogic = compose::byId($this->getConfiguration('file'));
         $eqlogic->generateComposeConf();
       }
     }
 
     public function generateComposeConf() {
-      $eqLogics = self::byType('compose', true);
+      $eqLogics = compose::byType('compose', true);
       $file = '---\n';
       $file .= 'version: "3.4"\n';
       $file .= 'services:\n';
