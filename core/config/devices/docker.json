@@ -1,0 +1,25 @@
+{
+  "commands": [
+    {
+      "name": "Redémarrer le container",
+      "type": "action",
+      "subtype": "other",
+      "isVisible": 1,
+      "logicalId": "restart"
+    },
+    {
+      "name": "Arrêter le container",
+      "type": "action",
+      "subtype": "other",
+      "isVisible": 0,
+      "logicalId": "stop"
+    },
+    {
+      "name": "Démarrer le container",
+      "type": "action",
+      "subtype": "other",
+      "isVisible": 0,
+      "logicalId": "start"
+    }
+  ]
+}

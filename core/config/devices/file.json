@@ -1,0 +1,25 @@
+{
+  "commands": [
+    {
+      "name": "Redémarrer la stack",
+      "type": "action",
+      "subtype": "other",
+      "isVisible": 1,
+      "logicalId": "restart"
+    },
+    {
+      "name": "Arrêter la stack",
+      "type": "action",
+      "subtype": "other",
+      "isVisible": 0,
+      "logicalId": "stop"
+    },
+    {
+      "name": "Démarrer la stack",
+      "type": "action",
+      "subtype": "other",
+      "isVisible": 0,
+      "logicalId": "start"
+    }
+  ]
+}

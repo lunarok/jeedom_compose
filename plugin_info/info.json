@@ -1,0 +1,13 @@
+{
+	"id" : "compose",
+	"name" : "Docker Compose",
+	"description" : "Ce plugin permet de gérer vos Docker Compose, il génère les fichiers de configuration et agit sur les containers.",
+	"licence" : "AGPL",
+	"author" : "lunarok",
+	"require" : "3.3.24",
+	"category" : "automatisation",
+	"language" : ["fr_FR","en_US"],
+	"compatibility" : ["miniplus","smart","rpi","docker","diy","mobile"],
+    "changelog" : "https://lunarok.github.io/jeedom_docs/plugins/compose/changelog.html",
+    "documentation" : "https://lunarok.github.io/jeedom_docs/plugins/compose/"
+}
