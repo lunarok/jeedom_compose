@@ -182,6 +182,7 @@ class compose extends eqLogic {
 
   public function sendShell($_cmd) {
     $cmd = 'sudo ' . $_cmd;
+    log::add('sshcommander', 'debug', 'Send ' . $cmd);
     $result = shell_exec($cmd);
     return $result;
   }
