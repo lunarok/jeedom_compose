@@ -210,7 +210,7 @@ $eqLogics = eqLogic::byType('compose');
                   <select class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="file">
                     <option value="none">{{Aucun}}</option>
                     <?php
-                    $eqLogics = self::byType('compose');
+                    $eqLogics = compose::byType('compose');
                     foreach ($eqLogics as $eqLogic) {
                       if ($eqLogic->getConfiguration('type') == 'file') {
                         echo '<option value="' . $eqLogic->getId() . '">' . $eqLogic->getName() . '</option>';
