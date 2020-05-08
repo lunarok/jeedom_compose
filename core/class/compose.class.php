@@ -75,12 +75,12 @@ class compose extends eqLogic {
 
     public function generateComposeConf() {
       $eqLogics = compose::byType('compose', true);
-      $file = '---\n';
-      $file .= 'version: "3.4"\n';
-      $file .= 'services:\n';
-      $file .= '\n';
+      $file = '---' . PHP_EOL;
+      $file .= 'version: "3.4"' . PHP_EOL;
+      $file .= 'services:' . PHP_EOL;
+      $file .=  PHP_EOL;
       foreach ($eqLogics as $eqLogic) {
-        if ($this->getConfiguration('file') == $this->getId()) {
+        if ($eqLogic->getConfiguration('file') == $this->getId()) {
           $file .= $eqLogic->generateDockerConf();
         }
       }
@@ -98,32 +98,32 @@ class compose extends eqLogic {
     }
 
     public function generateDockerConf() {
-      $file = '  ' . $this->getConfiguration('name') . ':\n';
-      $file .= '    image: ' . $this->getConfiguration('image') . '\n';
-      $file .= '    container_name: ' . $this->getConfiguration('name') . '\n';
-      $file .= '    restart: ' . $this->getConfiguration('restart') . '\n';
+      $file = '  ' . $this->getConfiguration('name') . ':' . PHP_EOL;
+      $file .= '    image: ' . $this->getConfiguration('image') . PHP_EOL;
+      $file .= '    container_name: ' . $this->getConfiguration('name') . PHP_EOL;
+      $file .= '    restart: ' . $this->getConfiguration('restart') . PHP_EOL;
       if ($this->getConfiguration('privileged')) {
-        $file .= '    privileged: true\n';
+        $file .= '    privileged: true' . PHP_EOL;
       }
       if ($this->getConfiguration('environment') != '') {
-        $file .= '    environment:\n';
+        $file .= '    environment:' . PHP_EOL;
         $explode = explode(';',$this->getConfiguration('environment'));
         foreach ($explode as $line) {
-          $file .= '      - ' . $line . '\n';
+          $file .= '      - ' . $line . PHP_EOL;
         }
       }
       if ($this->getConfiguration('volumes') != '') {
-        $file .= '    volumes:\n';
+        $file .= '    volumes:' . PHP_EOL;
         $explode = explode(';',$this->getConfiguration('volumes'));
         foreach ($explode as $line) {
-          $file .= '      - ' . $line . '\n';
+          $file .= '      - ' . $line . PHP_EOL;
         }
       }
       if ($this->getConfiguration('ports') != '') {
-        $file .= '    ports:\n';
+        $file .= '    ports:' . PHP_EOL;
         $explode = explode(';',$this->getConfiguration('ports'));
         foreach ($explode as $line) {
-          $file .= '      - ' . $line . '\n';
+          $file .= '      - ' . $line . PHP_EOL;
         }
       }
       $file .= '\n';
