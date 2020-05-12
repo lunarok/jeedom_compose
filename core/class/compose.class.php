@@ -91,17 +91,17 @@ class compose extends eqLogic {
     if ($this->getConfiguration('connexion') == 'ssh') {
       file_put_contents('/tmp/ssh.yml', $_file);
       if (!$connection = ssh2_connect($this->getConfiguration('sshhost'),$this->getConfiguration('sshport','22'))) {
-        log::add('sshcommander', 'error', 'connexion SSH KO');
+        log::add('compose', 'error', 'connexion SSH KO');
         return 'error connecting';
       }
       if ($this->getConfiguration('sshmode') == "pass") {
         if (!ssh2_auth_password($connection,$this->getConfiguration('sshuser'),$this->getConfiguration('sshpass'))){
-          log::add('sshcommander', 'error', 'Authentification SSH KO');
+          log::add('compose', 'error', 'Authentification SSH KO');
           return 'error connecting';
         }
       } else {
         if (!ssh2_auth_pubkey_file($connection,$this->getConfiguration('sshuser'),$this->getConfiguration('sshkey').'.pub',$this->getConfiguration('sshkey'))){
-          log::add('sshcommander', 'error', 'Authentification SSH KO');
+          log::add('compose', 'error', 'Authentification SSH KO');
           return 'error connecting';
         }
       }
@@ -155,17 +155,17 @@ class compose extends eqLogic {
 
   public function sendSSH($_cmd) {
     if (!$connection = ssh2_connect($this->getConfiguration('sshhost'),$this->getConfiguration('sshport','22'))) {
-      log::add('sshcommander', 'error', 'connexion SSH KO');
+      log::add('compose', 'error', 'connexion SSH KO');
       return 'error connecting';
     }
     if ($this->getConfiguration('sshmode') == "pass") {
       if (!ssh2_auth_password($connection,$this->getConfiguration('sshuser'),$this->getConfiguration('sshpass'))){
-        log::add('sshcommander', 'error', 'Authentification SSH KO');
+        log::add('compose', 'error', 'Authentification SSH KO');
         return 'error connecting';
       }
     } else {
       if (!ssh2_auth_pubkey_file($connection,$this->getConfiguration('sshuser'),$this->getConfiguration('sshkey').'.pub',$this->getConfiguration('sshkey'))){
-        log::add('sshcommander', 'error', 'Authentification SSH KO');
+        log::add('compose', 'error', 'Authentification SSH KO');
         return 'error connecting';
       }
     }
@@ -182,7 +182,7 @@ class compose extends eqLogic {
 
   public function sendShell($_cmd) {
     $cmd = 'sudo ' . $_cmd;
-    log::add('sshcommander', 'debug', 'Send ' . $cmd);
+    log::add('compose', 'debug', 'Send ' . $cmd);
     $result = shell_exec($cmd);
     return $result;
   }
