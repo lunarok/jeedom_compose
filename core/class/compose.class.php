@@ -196,7 +196,7 @@ class composeCmd extends cmd {
       switch ($this->getLogicalId()) {
         case 'stop':
           if ($eqLogic->getConfiguration('type') == 'file') {
-            $eqLogic->sendCommand('docker-compose -f ' . $eqLogic->getConfiguration('path') . ' stop');
+            $eqLogic->sendCommand('docker-compose -f ' . $eqLogic->getConfiguration('path') . ' down');
           } else {
             $master = compose::byId($eqLogic->getConfiguration('file'));
             $master->sendCommand('docker-compose -f ' . $master->getConfiguration('path') . ' stop ' . $eqLogic->getConfiguration('name'));
